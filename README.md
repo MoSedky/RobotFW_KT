@@ -41,6 +41,10 @@ Test Automation Framework Project for Robot Framework which contains the followi
       6. Test Steps
         Which calls Keword Name Levels
 
+### For Execution use following Command
+      robot TestSuites\Login_TestSuite.robot
+This command will export by default three types of Reports(log.html, report.html, output.xml "Which we will use later for Test Execution on Test Tools like JIRA")
+
 Project going to be updated Weekly basis and Readme going be modified. Feel Free to Clone, Contribute and Enjoy!
 
 
