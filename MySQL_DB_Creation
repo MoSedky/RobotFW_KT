@@ -1,0 +1,10 @@
+CREATE DATABASE Robot_FW_Users;
+Show databases;
+Create table Robot_FW_Users.Robot_Users (ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, Email_address VARCHAR(100), Password VARCHAR(100), Full_Name VARCHAR(100), Address VARCHAR(100));
+Use Robot_FW_Users;
+Show tables;
+Insert into Robot_Users (Email_address, Password, Full_Name, Address) values ('elkurfchannel@gmail.com','123456', 'Mo Sedky', 'TestAddress');
+Select * from Robot_Users;
+Create table Robot_FW_Users.Robot_Users_Activities (ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY, User_ID INT, FOREIGN KEY(User_ID) REFERENCES Robot_Users(ID), last_login_time DateTIME(6),failed_login_attempts INT);
+Insert into Robot_Users_Activities (last_login_time, failed_login_attempts) values(CURDate(),0);
+Update Robot_Users_Activities set User_ID=1 where failed_login_attempts=0;
