@@ -10,10 +10,10 @@ Test Teardown  close browser            #This is used to executed once at the en
 Test Case SignIn with Valid Credentials
     [Tags]          Smoke-Test, Login-Functionality, Positive
     Open Sign In Page
-    User SignIn                     ELkurfchannel@gmail.com         123456
+    User SignIn                     Sedky                   123456                  Success
 
 Test Case SignIn with Invalid Credentials
     [Tags]          Smoke-Test, Login-Functionality, Negative
     [Setup]         Open Firefox Browser        #This will overrides the Test Setup of Test Suite, Can be used when one of Test Cases Setup is different than the whole Suite
     Open Sign In Page
-    User SignIn Failed             ELkurfchannel@gmail.com         Invalid_password
+    User SignIn                    Mo                       Invalid_password        Fail

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.7.5 on linux)" generated="20200905 22:30:06.582" rpa="false">
+<suite id="s1" name="Login TestSuite" source="/home/mosedky/PycharmProjects/RobotFW_KT/TestSuites/Login_TestSuite.robot">
+<test id="s1-t1" name="Test Case SignIn with Valid Credentials">
+<kw name="Open Chrome Browser" library="Webdriver_Manager" type="setup">
+<kw name="Set Common Global Variables" library="Variables">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>http://automationpractice.com/index.php</arg>
+</arguments>
+<msg timestamp="20200905 22:30:06.723" level="INFO">${URL} = http://automationpractice.com/index.php</msg>
+<status status="PASS" starttime="20200905 22:30:06.723" endtime="20200905 22:30:06.723"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${Explicit_TimeOut}</arg>
+<arg>60s</arg>
+</arguments>
+<msg timestamp="20200905 22:30:06.724" level="INFO">${Explicit_TimeOut} = 60s</msg>
+<status status="PASS" starttime="20200905 22:30:06.724" endtime="20200905 22:30:06.724"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:06.722" endtime="20200905 22:30:06.724"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20200905 22:30:06.725" level="INFO">Opening browser 'Chrome' to base url 'http://automationpractice.com/index.php'.</msg>
+<status status="PASS" starttime="20200905 22:30:06.724" endtime="20200905 22:30:12.683"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.5s</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:12.683" endtime="20200905 22:30:12.684"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:06.722" endtime="20200905 22:30:12.684"></status>
+</kw>
+<kw name="Open Sign In Page" library="Keywords_Login">
+<kw name="Get Title Of SignIn Page" library="Login_Page">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Expected_Welcome_text}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:12.688" endtime="20200905 22:30:13.210"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:12.687" endtime="20200905 22:30:13.211"></status>
+</kw>
+<kw name="Click SignIn Button in Landing Page" library="Login_Page">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${SignIn_btn_landing}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:13.213" endtime="20200905 22:30:14.862"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SignIn_btn_landing}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:14.863" level="INFO">Clicking element '//*[contains(@class,'login')]'.</msg>
+<status status="PASS" starttime="20200905 22:30:14.862" endtime="20200905 22:30:18.507"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:13.211" endtime="20200905 22:30:18.508"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:12.687" endtime="20200905 22:30:18.508"></status>
+</kw>
+<kw name="User SignIn" library="Keywords_Login">
+<arguments>
+<arg>Sedky</arg>
+<arg>123456</arg>
+<arg>Success</arg>
+</arguments>
+<kw name="Get Email Address by User Full Name" library="Database_Queries">
+<arguments>
+<arg>${Username}</arg>
+</arguments>
+<assign>
+<var>${EmailAddress}</var>
+</assign>
+<kw name="Connect To Database" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<arguments>
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUserName}</arg>
+<arg>${DBPassword}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:18.612" level="INFO">Connecting using : pymysql.connect(db=Robot_FW_Users, user=root, passwd=sedky24303252, host=127.0.0.1, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20200905 22:30:18.514" endtime="20200905 22:30:18.613"></status>
+</kw>
+<kw name="Query" library="DatabaseLibrary">
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<arguments>
+<arg>Select Email_address from Robot_Users where Full_Name like '%${UserName}%'</arg>
+</arguments>
+<assign>
+<var>@{result_array}</var>
+</assign>
+<msg timestamp="20200905 22:30:18.614" level="INFO">Executing : Query  |  Select Email_address from Robot_Users where Full_Name like '%Sedky%' </msg>
+<msg timestamp="20200905 22:30:18.615" level="INFO">@{result_array} = [ ('elkurfchannel@gmail.com',) ]</msg>
+<status status="PASS" starttime="20200905 22:30:18.613" endtime="20200905 22:30:18.615"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>@{result_array[0]}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:18.616" level="INFO">elkurfchannel@gmail.com</msg>
+<status status="PASS" starttime="20200905 22:30:18.615" endtime="20200905 22:30:18.616"></status>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20200905 22:30:18.616" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20200905 22:30:18.616" endtime="20200905 22:30:18.616"></status>
+</kw>
+<msg timestamp="20200905 22:30:18.617" level="INFO">${EmailAddress} = ['elkurfchannel@gmail.com']</msg>
+<status status="PASS" starttime="20200905 22:30:18.512" endtime="20200905 22:30:18.617"></status>
+</kw>
+<kw name="Insert Text in Email" library="Login_Page">
+<arguments>
+<arg>${EmailAddress}</arg>
+</arguments>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Usermail_txt}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:18.618" endtime="20200905 22:30:20.210"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Usermail_txt}</arg>
+<arg>${Usermail_value}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:20.213" level="INFO">Typing text '['elkurfchannel@gmail.com']' into text field '(//*[contains(text(),'Email')])[2]/..//input'.</msg>
+<status status="PASS" starttime="20200905 22:30:20.211" endtime="20200905 22:30:22.074"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:18.617" endtime="20200905 22:30:22.075"></status>
+</kw>
+<kw name="Insert Text in Password" library="Login_Page">
+<arguments>
+<arg>${Password}</arg>
+</arguments>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Password_txt}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:22.079" endtime="20200905 22:30:23.677"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_txt}</arg>
+<arg>${Password_value}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:23.679" level="INFO">Typing text '123456' into text field '//*[contains(text(),'Password')]/..//input'.</msg>
+<status status="PASS" starttime="20200905 22:30:23.678" endtime="20200905 22:30:25.442"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:22.076" endtime="20200905 22:30:25.443"></status>
+</kw>
+<kw name="Click SignIn Button" library="Login_Page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SignIn_btn}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:25.446" endtime="20200905 22:30:26.531"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SignIn_btn}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:26.534" level="INFO">Clicking element '//*[contains(@id,'SubmitLogin')]'.</msg>
+<status status="PASS" starttime="20200905 22:30:26.532" endtime="20200905 22:30:28.897"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:25.444" endtime="20200905 22:30:28.898"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Expected_Scenario}'=='Success'</arg>
+<arg>Verify User Logged In</arg>
+<arg>ELSE</arg>
+<arg>Verify User Failed Login</arg>
+</arguments>
+<kw name="Verify User Logged In" library="Login_Page">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${success_login_msg}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:28.899" endtime="20200905 22:30:29.417"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:28.899" endtime="20200905 22:30:29.418"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:28.898" endtime="20200905 22:30:29.419"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:18.510" endtime="20200905 22:30:29.419"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200905 22:30:29.421" endtime="20200905 22:30:30.039"></status>
+</kw>
+<tags>
+<tag>Smoke-Test, Login-Functionality, Positive</tag>
+</tags>
+<status status="PASS" starttime="20200905 22:30:06.721" endtime="20200905 22:30:30.040" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Test Case SignIn with Invalid Credentials">
+<kw name="Open Firefox Browser" library="Webdriver_Manager" type="setup">
+<kw name="Set Common Global Variables" library="Variables">
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>http://automationpractice.com/index.php</arg>
+</arguments>
+<msg timestamp="20200905 22:30:30.053" level="INFO">${URL} = http://automationpractice.com/index.php</msg>
+<status status="PASS" starttime="20200905 22:30:30.051" endtime="20200905 22:30:30.054"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${Explicit_TimeOut}</arg>
+<arg>60s</arg>
+</arguments>
+<msg timestamp="20200905 22:30:30.056" level="INFO">${Explicit_TimeOut} = 60s</msg>
+<status status="PASS" starttime="20200905 22:30:30.054" endtime="20200905 22:30:30.057"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:30.050" endtime="20200905 22:30:30.058"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>Firefox</arg>
+</arguments>
+<msg timestamp="20200905 22:30:30.060" level="INFO">Opening browser 'Firefox' to base url 'http://automationpractice.com/index.php'.</msg>
+<msg timestamp="20200905 22:30:30.064" level="INFO">Firefox driver log is always forced to to: /home/mosedky/PycharmProjects/RobotFW_KT/ResultsAndReports/geckodriver-1.log</msg>
+<status status="PASS" starttime="20200905 22:30:30.059" endtime="20200905 22:30:36.870"></status>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>0.5s</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:36.873" endtime="20200905 22:30:36.876"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:30.048" endtime="20200905 22:30:36.882"></status>
+</kw>
+<kw name="Open Sign In Page" library="Keywords_Login">
+<kw name="Get Title Of SignIn Page" library="Login_Page">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Expected_Welcome_text}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:36.893" endtime="20200905 22:30:37.432"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:36.889" endtime="20200905 22:30:37.434"></status>
+</kw>
+<kw name="Click SignIn Button in Landing Page" library="Login_Page">
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${SignIn_btn_landing}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:37.436" endtime="20200905 22:30:39.024"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SignIn_btn_landing}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:39.025" level="INFO">Clicking element '//*[contains(@class,'login')]'.</msg>
+<status status="PASS" starttime="20200905 22:30:39.024" endtime="20200905 22:30:42.824"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:37.434" endtime="20200905 22:30:42.825"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:36.886" endtime="20200905 22:30:42.826"></status>
+</kw>
+<kw name="User SignIn" library="Keywords_Login">
+<arguments>
+<arg>Mo</arg>
+<arg>Invalid_password</arg>
+<arg>Fail</arg>
+</arguments>
+<kw name="Get Email Address by User Full Name" library="Database_Queries">
+<arguments>
+<arg>${Username}</arg>
+</arguments>
+<assign>
+<var>${EmailAddress}</var>
+</assign>
+<kw name="Connect To Database" library="DatabaseLibrary">
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<arguments>
+<arg>pymysql</arg>
+<arg>${DBName}</arg>
+<arg>${DBUserName}</arg>
+<arg>${DBPassword}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:42.834" level="INFO">Connecting using : pymysql.connect(db=Robot_FW_Users, user=root, passwd=sedky24303252, host=127.0.0.1, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20200905 22:30:42.831" endtime="20200905 22:30:42.839"></status>
+</kw>
+<kw name="Query" library="DatabaseLibrary">
+<doc>Uses the input `selectStatement` to query for the values that will be returned as a list of tuples. Set optional
+input `sansTran` to True to run command without an explicit transaction commit or rollback.
+Set optional input `returnAsDict` to True to return values as a list of dictionaries.</doc>
+<arguments>
+<arg>Select Email_address from Robot_Users where Full_Name like '%${UserName}%'</arg>
+</arguments>
+<assign>
+<var>@{result_array}</var>
+</assign>
+<msg timestamp="20200905 22:30:42.841" level="INFO">Executing : Query  |  Select Email_address from Robot_Users where Full_Name like '%Mo%' </msg>
+<msg timestamp="20200905 22:30:42.846" level="INFO">@{result_array} = [ ('elkurfchannel@gmail.com',) ]</msg>
+<status status="PASS" starttime="20200905 22:30:42.839" endtime="20200905 22:30:42.846"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>@{result_array[0]}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:42.851" level="INFO">elkurfchannel@gmail.com</msg>
+<status status="PASS" starttime="20200905 22:30:42.848" endtime="20200905 22:30:42.852"></status>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20200905 22:30:42.856" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20200905 22:30:42.854" endtime="20200905 22:30:42.857"></status>
+</kw>
+<msg timestamp="20200905 22:30:42.860" level="INFO">${EmailAddress} = ['elkurfchannel@gmail.com']</msg>
+<status status="PASS" starttime="20200905 22:30:42.829" endtime="20200905 22:30:42.860"></status>
+</kw>
+<kw name="Insert Text in Email" library="Login_Page">
+<arguments>
+<arg>${EmailAddress}</arg>
+</arguments>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Usermail_txt}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:42.865" endtime="20200905 22:30:44.434"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${Usermail_txt}</arg>
+<arg>${Usermail_value}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:44.436" level="INFO">Typing text '['elkurfchannel@gmail.com']' into text field '(//*[contains(text(),'Email')])[2]/..//input'.</msg>
+<status status="PASS" starttime="20200905 22:30:44.435" endtime="20200905 22:30:46.067"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:42.861" endtime="20200905 22:30:46.068"></status>
+</kw>
+<kw name="Insert Text in Password" library="Login_Page">
+<arguments>
+<arg>${Password}</arg>
+</arguments>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<arguments>
+<arg>${Password_txt}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:46.071" endtime="20200905 22:30:47.666"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${password_txt}</arg>
+<arg>${Password_value}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:47.668" level="INFO">Typing text 'Invalid_password' into text field '//*[contains(text(),'Password')]/..//input'.</msg>
+<status status="PASS" starttime="20200905 22:30:47.667" endtime="20200905 22:30:49.275"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:46.068" endtime="20200905 22:30:49.276"></status>
+</kw>
+<kw name="Click SignIn Button" library="Login_Page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>${SignIn_btn}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:49.279" endtime="20200905 22:30:50.363"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${SignIn_btn}</arg>
+</arguments>
+<msg timestamp="20200905 22:30:50.366" level="INFO">Clicking element '//*[contains(@id,'SubmitLogin')]'.</msg>
+<status status="PASS" starttime="20200905 22:30:50.364" endtime="20200905 22:30:52.413"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:49.277" endtime="20200905 22:30:52.414"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Expected_Scenario}'=='Success'</arg>
+<arg>Verify User Logged In</arg>
+<arg>ELSE</arg>
+<arg>Verify User Failed Login</arg>
+</arguments>
+<kw name="Verify User Failed login" library="Login_Page">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${Failed_login_msg}</arg>
+<arg>${Explicit_TimeOut}</arg>
+</arguments>
+<status status="PASS" starttime="20200905 22:30:52.418" endtime="20200905 22:30:52.939"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:52.417" endtime="20200905 22:30:52.939"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:52.415" endtime="20200905 22:30:52.940"></status>
+</kw>
+<status status="PASS" starttime="20200905 22:30:42.827" endtime="20200905 22:30:52.940"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="teardown">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20200905 22:30:52.940" endtime="20200905 22:30:54.462"></status>
+</kw>
+<tags>
+<tag>Smoke-Test, Login-Functionality, Negative</tag>
+</tags>
+<status status="PASS" starttime="20200905 22:30:30.045" endtime="20200905 22:30:54.462" critical="yes"></status>
+</test>
+<doc>Test Suites for Login Cases</doc>
+<status status="PASS" starttime="20200905 22:30:06.583" endtime="20200905 22:30:54.468"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0">Smoke-Test, Login-Functionality, Negative</stat>
+<stat pass="1" fail="0">Smoke-Test, Login-Functionality, Positive</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="Login TestSuite">Login TestSuite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

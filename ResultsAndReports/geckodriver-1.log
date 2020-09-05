@@ -1,0 +1,11 @@
+1599334230076	geckodriver	INFO	Listening on 127.0.0.1:34357
+1599334230112	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile2Qwzp8"
+1599334230530	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: mozillaAddons
+1599334230530	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: telemetry
+1599334230530	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: resource://pdf.js/
+1599334230530	addons.webextension.screenshots@mozilla.org	WARN	Loading extension 'screenshots@mozilla.org': Reading manifest: Invalid extension permission: about:reader*
+1599334232745	Marionette	INFO	Listening on port 32977
+1599334232823	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(/usr/lib/firefox/firefox:22839): dconf-WARNING **: 22:30:48.835: Unable to open /var/lib/snapd/desktop/dconf/profile/user: Permission denied
+1599334252941	Marionette	INFO	Stopped listening on port 32977
