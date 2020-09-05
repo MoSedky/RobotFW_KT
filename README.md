@@ -57,6 +57,7 @@ Project going to be updated Weekly basis and Readme going be modified. Feel Free
 ```robot --outputdir ResultsAndReports/ TestSuites/Login_TestSuite.robot``` 
 3.   Use ```-T ``` Flag for generate Reports in a timestamp format. This can be useful to avoid overriding results of cases in parallel execution
 ```robot -T --outputdir ResultsAndReports/ TestSuites/Login_TestSuite.robot```
+
 For Installing and Creating new MySQL Database follow instructions [here](https://support.rackspace.com/how-to/install-mysql-server-on-the-ubuntu-operating-system/)
 
 Check Created DB by Scripts in Mysql_DBscripts file
