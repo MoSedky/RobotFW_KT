@@ -9,7 +9,7 @@ Follow these Steps for Getting Started:
       2. Robotframework-SeleniumLibrary
       3. Robotframework-DatabaseLibrary
       4. Robot Framework
-      5. Robotframework-pabotLibrary
+      5.robotframework-pabot
 ## Then install the following plugins:
       1. Robotframework support
       2. Run Robotframework
