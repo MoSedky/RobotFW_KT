@@ -69,13 +69,13 @@ Check Created DB by Scripts in Mysql_DBscripts file
       3. Add ```name``` param for rename executing TCs on Selenoid docker containers
 
 *    For getting your hands dirty faster on Selenoid setup, Please follow these commands on Linux:
-      *     ```curl -s https://aerokube.com/cm/bash | bash``` 
-      *     ```chmod +x cm```
-      *     ```./cm selenoid start --vnc```
-      *     ```./cm selenoid-ui start```
-      *     ```docker ps -a```
-      *     Make sure that docker container for selenoid-ui is up and running
-      *     Follow very detailed and Informative Guidelines on [Selenoid Documentation](https://aerokube.com/selenoid/latest/) 
+      * `curl -s https://aerokube.com/cm/bash | bash` 
+      * `chmod +x cm`
+      * `./cm selenoid start --vnc`
+      * `./cm selenoid-ui start`
+      * `docker ps -a`
+      * Make sure that docker container for selenoid-ui is up and running
+      * Follow very detailed and Informative Guidelines on [Selenoid Documentation](https://aerokube.com/selenoid/latest/) 
 
 
 
