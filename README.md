@@ -63,17 +63,20 @@ For Installing and Creating new MySQL Database follow instructions [here](https:
 Check Created DB by Scripts in Mysql_DBscripts file
 
 ## 13-09-2020 Changes
-1.   Changes in ```Webdriver_Manager.robot ```
+*    Changes in ```Webdriver_Manager.robot ```
       1. Add ```remote_url``` param to execute Test Case on [Selenoid](https://github.com/aerokube/selenoid)
       2. Add ```desired_capabilities``` param for using ```enableVNC``` to view TCs while running on Selenoid docker containers
       3. Add ```name``` param for rename executing TCs on Selenoid docker containers
-For getting your hands dirty faster on Selenoid setup, Please follow these commands on Linux:
-curl -s https://aerokube.com/cm/bash | bash 
-1. chmod +x cm
-2.  ./cm selenoid start --vnc
-3. ./cm selenoid-ui start
-4.  docker ps -a
-5.  make sure that docker container for selenoid-ui is up and running
-6. Follow very detailed and Informative Guidelines on [Selenoid Documentation](https://aerokube.com/selenoid/latest/) 
+
+*    For getting your hands dirty faster on Selenoid setup, Please follow these commands on Linux:
+      *     ```curl -s https://aerokube.com/cm/bash | bash``` 
+      *     ```chmod +x cm```
+      *     ```./cm selenoid start --vnc```
+      *     ```./cm selenoid-ui start```
+      *     ```docker ps -a```
+      *     Make sure that docker container for selenoid-ui is up and running
+      *     Follow very detailed and Informative Guidelines on [Selenoid Documentation](https://aerokube.com/selenoid/latest/) 
+
+
 
 Made with :green_heart: by Mo Sedky
