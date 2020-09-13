@@ -76,6 +76,7 @@ Check Created DB by Scripts in Mysql_DBscripts file
       * `docker ps -a`
       * Make sure that docker container for selenoid-ui is up and running
       * Follow very detailed and Informative Guidelines on [Selenoid Documentation](https://aerokube.com/selenoid/latest/) 
+      * Open http://${selenoid_server}:8080 and enjoy !
 
 
 
