@@ -9,7 +9,7 @@ Follow these Steps for Getting Started:
       2. Robotframework-SeleniumLibrary
       3. Robotframework-DatabaseLibrary
       4. Robot Framework
-      5. Robotframework-pabotLibrary
+      5.robotframework-pabot
 ## Then install the following plugins:
       1. Robotframework support
       2. Run Robotframework
@@ -47,7 +47,7 @@ This command will export by default three types of Reports(log.html, report.html
 
 Project going to be updated Weekly basis and Readme going be modified. Feel Free to Clone, Contribute and Enjoy!
 
-## 05-09-2020 Changes
+## 06-09-2020 Changes
 1.   Adding ```Database_Queries.robot ```
       1. Connection to MySql Database using [PyMySQL](https://pypi.org/project/PyMySQL/) python client API Library for MySql
       2. Use ```query``` keyword for select retrieve values from created DB
