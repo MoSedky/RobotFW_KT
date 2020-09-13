@@ -4,8 +4,8 @@ Library     DatabaseLibrary
 *** Variables ***
 ${DBName}               Robot_FW_Users
 ${DBUserName}           root
-${DBPassword}           DB_password
-${DBHost}               xxx.xxx.xx.x
+${DBPassword}           DBPassword
+${DBHost}               xxx.xx.xx.x
 ${DBPort}               3306
 
 
